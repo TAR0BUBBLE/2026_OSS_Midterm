@@ -9,8 +9,6 @@ import streamlit as st
 # -----------------------------
 # 파일 확장자 탐색 함수
 # -----------------------------
-IMAGE_DIR = BASE_DIR / "assets" / "images"
-HOME_BANNER_PATH = IMAGE_DIR / "home_banner.jpg"
 
 SUPPORTED_FLAG_EXTENSIONS = [".gif", ".png", ".bmp", ".jpg", ".jpeg"]
 
@@ -62,34 +60,6 @@ def render_flag_image(iso2: str, caption: str):
         unsafe_allow_html=True,
     )
 
-def render_local_image(path: Path, class_name: str = "", alt_text: str = "image"):
-    if not path.exists():
-        st.warning(f"{path.name} 파일을 찾을 수 없습니다.")
-        return
-
-    mime_map = {
-        ".gif": "image/gif",
-        ".png": "image/png",
-        ".bmp": "image/bmp",
-        ".jpg": "image/jpeg",
-        ".jpeg": "image/jpeg",
-        ".webp": "image/webp",
-    }
-
-    mime_type = mime_map.get(path.suffix.lower(), "image/jpeg")
-    encoded = base64.b64encode(path.read_bytes()).decode("utf-8")
-    safe_alt = html.escape(alt_text)
-
-    st.markdown(
-        f"""
-        <img
-            src="data:{mime_type};base64,{encoded}"
-            alt="{safe_alt}"
-            class="{class_name}"
-        />
-        """,
-        unsafe_allow_html=True,
-    )
 
 # -----------------------------
 # 기본 설정
@@ -247,7 +217,7 @@ def logout():
 
 
 def start_quiz(all_questions):
-    QUIZ_COUNT = 10
+    QUIZ_COUNT = 4
     selected = [
         q for q in all_questions if q["continent"] == st.session_state.selected_continent
     ]
