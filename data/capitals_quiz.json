@@ -1,0 +1,114 @@
+[
+  {
+    "country": "대한민국",
+    "capital": "서울",
+    "continent": "아시아",
+    "iso2": "KR",
+    "aliases": ["seoul"]
+  },
+  {
+    "country": "일본",
+    "capital": "도쿄",
+    "continent": "아시아",
+    "iso2": "JP",
+    "aliases": ["tokyo", "tokio"]
+  },
+  {
+    "country": "태국",
+    "capital": "방콕",
+    "continent": "아시아",
+    "iso2": "TH",
+    "aliases": ["bangkok"]
+  },
+  {
+    "country": "베트남",
+    "capital": "하노이",
+    "continent": "아시아",
+    "iso2": "VN",
+    "aliases": ["hanoi"]
+  },
+  {
+    "country": "프랑스",
+    "capital": "파리",
+    "continent": "유럽",
+    "iso2": "FR",
+    "aliases": ["paris"]
+  },
+  {
+    "country": "독일",
+    "capital": "베를린",
+    "continent": "유럽",
+    "iso2": "DE",
+    "aliases": ["berlin"]
+  },
+  {
+    "country": "이탈리아",
+    "capital": "로마",
+    "continent": "유럽",
+    "iso2": "IT",
+    "aliases": ["rome", "roma"]
+  },
+  {
+    "country": "스페인",
+    "capital": "마드리드",
+    "continent": "유럽",
+    "iso2": "ES",
+    "aliases": ["madrid"]
+  },
+  {
+    "country": "이집트",
+    "capital": "카이로",
+    "continent": "아프리카",
+    "iso2": "EG",
+    "aliases": ["cairo"]
+  },
+  {
+    "country": "케냐",
+    "capital": "나이로비",
+    "continent": "아프리카",
+    "iso2": "KE",
+    "aliases": ["nairobi"]
+  },
+  {
+    "country": "나이지리아",
+    "capital": "아부자",
+    "continent": "아프리카",
+    "iso2": "NG",
+    "aliases": ["abuja"]
+  },
+  {
+    "country": "에티오피아",
+    "capital": "아디스아바바",
+    "continent": "아프리카",
+    "iso2": "ET",
+    "aliases": ["addisababa", "addis ababa"]
+  },
+  {
+    "country": "캐나다",
+    "capital": "오타와",
+    "continent": "아메리카",
+    "iso2": "CA",
+    "aliases": ["ottawa"]
+  },
+  {
+    "country": "멕시코",
+    "capital": "멕시코시티",
+    "continent": "아메리카",
+    "iso2": "MX",
+    "aliases": ["mexicocity", "mexico city"]
+  },
+  {
+    "country": "브라질",
+    "capital": "브라질리아",
+    "continent": "아메리카",
+    "iso2": "BR",
+    "aliases": ["brasilia"]
+  },
+  {
+    "country": "아르헨티나",
+    "capital": "부에노스아이레스",
+    "continent": "아메리카",
+    "iso2": "AR",
+    "aliases": ["buenosaires", "buenos aires"]
+  }
+]

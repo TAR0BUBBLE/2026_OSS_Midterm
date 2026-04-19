@@ -1,0 +1,457 @@
+import json
+import random
+import base64
+import html
+from pathlib import Path
+
+import streamlit as st
+
+
+# -----------------------------
+# 기본 설정
+# -----------------------------
+st.set_page_config(
+    page_title="세계 수도 챌린지",
+    page_icon="🌍",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+BASE_DIR = Path(__file__).parent
+DATA_PATH = BASE_DIR / "data" / "capitals_quiz.json"
+FLAG_DIR = BASE_DIR / "assets" / "flags"
+
+APP_TITLE = "세계 수도 챌린지"
+STUDENT_ID = "2023204017"
+STUDENT_NAME = "최유진"
+
+VALID_USERS = {
+    "student": "oss2026",
+    "yujin": "capitalmaster",
+    "admin": "1234"
+}
+
+
+# -----------------------------
+# 스타일
+# -----------------------------
+st.markdown(
+    """
+    <style>
+    .hero-card {
+        padding: 1.2rem 1.4rem;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #e0f2fe, #f0fdf4);
+        border: 1px solid #dbeafe;
+        margin-bottom: 1rem;
+    }
+
+    .meta-card {
+        padding: 1rem 1.2rem;
+        border-radius: 16px;
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        text-align: center;
+    }
+
+    .feedback-success {
+        padding: 1rem 1.2rem;
+        border-radius: 16px;
+        background: #ecfdf5;
+        border: 1px solid #10b981;
+        color: #065f46;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .feedback-error {
+        padding: 1rem 1.2rem;
+        border-radius: 16px;
+        background: #fef2f2;
+        border: 1px solid #ef4444;
+        color: #991b1b;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .grade-card {
+        padding: 1.2rem 1.4rem;
+        border-radius: 18px;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+# -----------------------------
+# 유틸 함수
+# -----------------------------
+@st.cache_data(show_spinner="퀴즈 데이터를 불러오는 중입니다...")
+def load_quiz_data():
+    with open(DATA_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def normalize_text(text: str) -> str:
+    return (
+        text.strip()
+        .lower()
+        .replace(" ", "")
+        .replace(".", "")
+        .replace(",", "")
+        .replace("'", "")
+    )
+
+
+def is_correct_answer(user_answer: str, item: dict) -> bool:
+    normalized_user_answer = normalize_text(user_answer)
+    accepted_answers = [item["capital"]] + item.get("aliases", [])
+    normalized_answers = [normalize_text(answer) for answer in accepted_answers]
+    return normalized_user_answer in normalized_answers
+
+
+def get_grade(score: int, total: int):
+    ratio = score / total if total else 0
+
+    if ratio >= 0.8:
+        return "수도 마스터", "훌륭해요! 세계 주요 수도를 매우 잘 알고 있어요."
+    elif ratio >= 0.5:
+        return "지리 탐험가", "좋아요! 기본적인 수도 지식이 잘 잡혀 있어요."
+    return "여행 초보", "아직은 연습이 더 필요해요. 다시 도전해봐요!"
+
+
+def init_session_state():
+    defaults = {
+        "logged_in": False,
+        "username": "",
+        "quiz_started": False,
+        "quiz_finished": False,
+        "current_index": 0,
+        "score": 0,
+        "selected_continent": "아시아",
+        "quiz_questions": [],
+        "results": [],
+        "feedback": None,
+    }
+
+    for key, value in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
+
+
+def reset_quiz_state():
+    st.session_state.quiz_started = False
+    st.session_state.quiz_finished = False
+    st.session_state.current_index = 0
+    st.session_state.score = 0
+    st.session_state.quiz_questions = []
+    st.session_state.results = []
+    st.session_state.feedback = None
+
+
+def logout():
+    st.session_state.logged_in = False
+    st.session_state.username = ""
+    reset_quiz_state()
+
+
+def start_quiz(all_questions):
+    selected = [
+        q for q in all_questions if q["continent"] == st.session_state.selected_continent
+    ]
+    random.shuffle(selected)
+    st.session_state.quiz_questions = selected[:4]
+    st.session_state.quiz_started = True
+    st.session_state.quiz_finished = False
+    st.session_state.current_index = 0
+    st.session_state.score = 0
+    st.session_state.results = []
+    st.session_state.feedback = None
+
+
+def go_next():
+    st.session_state.current_index += 1
+    st.session_state.feedback = None
+
+    if st.session_state.current_index >= len(st.session_state.quiz_questions):
+        st.session_state.quiz_finished = True
+
+
+# -----------------------------
+# 초기화
+# -----------------------------
+init_session_state()
+quiz_data = load_quiz_data()
+
+
+# -----------------------------
+# 사이드바
+# -----------------------------
+st.sidebar.title("🌍 메뉴")
+
+if st.session_state.logged_in:
+    st.sidebar.success(f"{st.session_state.username} 님 로그인 중")
+    st.sidebar.info("퀴즈 데이터는 st.cache_data로 캐싱됩니다.")
+
+    if st.sidebar.button("캐시 초기화"):
+        load_quiz_data.clear()
+        st.sidebar.success("퀴시 데이터 캐시를 초기화했습니다.")
+
+    if st.sidebar.button("로그아웃"):
+        logout()
+        st.rerun()
+else:
+    st.sidebar.caption("로그인 후 퀴즈를 시작할 수 있습니다.")
+
+def render_flag_gif(flag_path: Path, caption: str):
+    if not flag_path.exists():
+        st.warning(f"{flag_path.name} 파일을 찾을 수 없습니다.")
+        return
+
+    gif_bytes = flag_path.read_bytes()
+    gif_base64 = base64.b64encode(gif_bytes).decode("utf-8")
+    safe_caption = html.escape(caption)
+
+    st.markdown(
+        f"""
+        <div style="text-align:center;">
+            <img
+                src="data:image/gif;base64,{gif_base64}"
+                style="
+                    width: 100%;
+                    max-width: 280px;
+                    border-radius: 12px;
+                    border: 1px solid #e5e7eb;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                "
+            />
+            <p style="margin-top:0.6rem; color:#6b7280; font-size:0.95rem;">
+                {safe_caption}
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+# -----------------------------
+# 첫 화면 공통 헤더
+# -----------------------------
+st.title(APP_TITLE)
+
+st.markdown(
+    """
+    <div class="hero-card">
+        나라와 국기를 보고 수도를 맞히는 단답형 퀴즈입니다.  
+        대륙별로 문제를 풀고, 최종 등급까지 확인해보세요.
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown(
+        f"""
+        <div class="meta-card">
+            <h4>학번</h4>
+            <p>{STUDENT_ID}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col2:
+    st.markdown(
+        f"""
+        <div class="meta-card">
+            <h4>이름</h4>
+            <p>{STUDENT_NAME}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+st.divider()
+
+
+# -----------------------------
+# 로그인 화면
+# -----------------------------
+if not st.session_state.logged_in:
+    st.subheader("로그인")
+
+    with st.form("login_form"):
+        user_id = st.text_input("아이디")
+        password = st.text_input("비밀번호", type="password")
+        login_submitted = st.form_submit_button("로그인")
+
+        if login_submitted:
+            if VALID_USERS.get(user_id) == password:
+                st.session_state.logged_in = True
+                st.session_state.username = user_id
+                st.success("로그인에 성공했습니다!")
+                st.rerun()
+            else:
+                st.error("아이디 또는 비밀번호가 올바르지 않습니다.")
+
+    st.stop()
+
+
+# -----------------------------
+# 퀴즈 시작 전 화면
+# -----------------------------
+if not st.session_state.quiz_started and not st.session_state.quiz_finished:
+    st.subheader("퀴즈 설정")
+
+    st.session_state.selected_continent = st.selectbox(
+        "대륙을 선택하세요",
+        ["아시아", "유럽", "아프리카", "아메리카"],
+        index=["아시아", "유럽", "아프리카", "아메리카"].index(
+            st.session_state.selected_continent
+        ),
+    )
+
+    st.write("선택한 대륙에서 4문제가 랜덤으로 출제됩니다.")
+    st.write("답은 **단답형으로 직접 입력**하면 됩니다.")
+
+    if st.button("퀴즈 시작하기", type="primary"):
+        start_quiz(quiz_data)
+        st.rerun()
+
+    st.stop()
+
+
+# -----------------------------
+# 결과 화면
+# -----------------------------
+if st.session_state.quiz_finished:
+    total = len(st.session_state.quiz_questions)
+    score = st.session_state.score
+    grade, message = get_grade(score, total)
+
+    st.header("🏁 퀴즈 결과")
+    st.metric("최종 점수", f"{score} / {total}")
+
+    st.markdown(
+        f"""
+        <div class="grade-card">
+            <h3>최종 등급: {grade}</h3>
+            <p>{message}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    if grade == "수도 마스터":
+        st.balloons()
+
+    with st.expander("문제별 결과 보기", expanded=True):
+        for idx, result in enumerate(st.session_state.results, start=1):
+            status = "✅ 정답" if result["correct"] else "❌ 오답"
+            st.write(
+                f"{idx}. {result['country']} | 내 답: {result['user_answer']} | "
+                f"정답: {result['correct_answer']} | {status}"
+            )
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("같은 대륙 다시 풀기"):
+            start_quiz(quiz_data)
+            st.rerun()
+
+    with col2:
+        if st.button("처음으로 돌아가기"):
+            reset_quiz_state()
+            st.rerun()
+
+    st.stop()
+
+
+# -----------------------------
+# 퀴즈 진행 화면
+# -----------------------------
+question = st.session_state.quiz_questions[st.session_state.current_index]
+total_questions = len(st.session_state.quiz_questions)
+current_no = st.session_state.current_index + 1
+
+st.header(f"문제 {current_no} / {total_questions}")
+st.progress(current_no / total_questions)
+
+left_col, right_col = st.columns([1, 2])
+
+with left_col:
+    flag_path = FLAG_DIR / f"{question['iso2'].upper()}.gif"
+    render_flag_gif(flag_path, f"{question['country']}")
+
+with right_col:
+    st.subheader(f"{question['country']}의 수도는 어디일까요?")
+    st.caption("정답을 한글 또는 영문으로 입력해도 됩니다.")
+
+    if st.session_state.feedback is None:
+        with st.form(f"quiz_form_{st.session_state.current_index}"):
+            user_answer = st.text_input("수도를 입력하세요")
+            submitted = st.form_submit_button("정답 제출")
+
+            if submitted:
+                if not user_answer.strip():
+                    st.warning("답을 입력해주세요.")
+                else:
+                    correct = is_correct_answer(user_answer, question)
+
+                    if correct:
+                        st.session_state.score += 1
+                        st.session_state.feedback = {
+                            "correct": True,
+                            "message": f"정답입니다! {question['country']}의 수도는 {question['capital']}입니다. 🎉",
+                        }
+                        st.toast("정답입니다! 🎉")
+                    else:
+                        st.session_state.feedback = {
+                            "correct": False,
+                            "message": f"오답입니다. 정답은 {question['capital']}입니다.",
+                        }
+                        st.toast("아쉬워요! 다음 문제에서 만회해봐요.")
+
+                    st.session_state.results.append(
+                        {
+                            "country": question["country"],
+                            "user_answer": user_answer,
+                            "correct_answer": question["capital"],
+                            "correct": correct,
+                        }
+                    )
+                    st.rerun()
+
+    else:
+        if st.session_state.feedback["correct"]:
+            st.markdown(
+                f"""
+                <div class="feedback-success">
+                    {st.session_state.feedback["message"]}
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            st.success("계속해서 다음 문제에 도전해보세요!")
+        else:
+            st.markdown(
+                f"""
+                <div class="feedback-error">
+                    {st.session_state.feedback["message"]}
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            st.error("괜찮아요. 다음 문제를 맞혀봐요!")
+
+        next_label = "결과 보기" if current_no == total_questions else "다음 문제"
+        if st.button(next_label, type="primary"):
+            go_next()
+            st.rerun()
