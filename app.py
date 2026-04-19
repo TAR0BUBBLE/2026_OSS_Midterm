@@ -6,6 +6,90 @@ from pathlib import Path
 
 import streamlit as st
 
+# -----------------------------
+# 파일 확장자 탐색 함수
+# -----------------------------
+IMAGE_DIR = BASE_DIR / "assets" / "images"
+HOME_BANNER_PATH = IMAGE_DIR / "home_banner.jpg"
+
+SUPPORTED_FLAG_EXTENSIONS = [".gif", ".png", ".bmp", ".jpg", ".jpeg"]
+
+def find_flag_path(iso2: str) -> Path | None:
+    for ext in SUPPORTED_FLAG_EXTENSIONS:
+        candidate = FLAG_DIR / f"{iso2.upper()}{ext}"
+        if candidate.exists():
+            return candidate
+    return None
+
+def render_flag_image(iso2: str, caption: str):
+    flag_path = find_flag_path(iso2)
+
+    if flag_path is None:
+        st.warning(f"{iso2.upper()} 국기 파일을 찾을 수 없습니다.")
+        return
+
+    mime_map = {
+        ".gif": "image/gif",
+        ".png": "image/png",
+        ".bmp": "image/bmp",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+    }
+
+    mime_type = mime_map.get(flag_path.suffix.lower(), "image/png")
+    image_bytes = flag_path.read_bytes()
+    encoded = base64.b64encode(image_bytes).decode("utf-8")
+    safe_caption = html.escape(caption)
+
+    st.markdown(
+        f"""
+        <div style="text-align:center;">
+            <img
+                src="data:{mime_type};base64,{encoded}"
+                style="
+                    width:100%;
+                    max-width:260px;
+                    border-radius:12px;
+                    border:1px solid #e5e7eb;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+                "
+            />
+            <p style="margin-top:0.6rem; color:#6b7280; font-size:0.95rem;">
+                {safe_caption}
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+def render_local_image(path: Path, class_name: str = "", alt_text: str = "image"):
+    if not path.exists():
+        st.warning(f"{path.name} 파일을 찾을 수 없습니다.")
+        return
+
+    mime_map = {
+        ".gif": "image/gif",
+        ".png": "image/png",
+        ".bmp": "image/bmp",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".webp": "image/webp",
+    }
+
+    mime_type = mime_map.get(path.suffix.lower(), "image/jpeg")
+    encoded = base64.b64encode(path.read_bytes()).decode("utf-8")
+    safe_alt = html.escape(alt_text)
+
+    st.markdown(
+        f"""
+        <img
+            src="data:{mime_type};base64,{encoded}"
+            alt="{safe_alt}"
+            class="{class_name}"
+        />
+        """,
+        unsafe_allow_html=True,
+    )
 
 # -----------------------------
 # 기본 설정
@@ -163,11 +247,12 @@ def logout():
 
 
 def start_quiz(all_questions):
+    QUIZ_COUNT = 10
     selected = [
         q for q in all_questions if q["continent"] == st.session_state.selected_continent
     ]
     random.shuffle(selected)
-    st.session_state.quiz_questions = selected[:4]
+    st.session_state.quiz_questions = selected[:QUIZ_COUNT]
     st.session_state.quiz_started = True
     st.session_state.quiz_finished = False
     st.session_state.current_index = 0
@@ -387,8 +472,7 @@ st.progress(current_no / total_questions)
 left_col, right_col = st.columns([1, 2])
 
 with left_col:
-    flag_path = FLAG_DIR / f"{question['iso2'].upper()}.gif"
-    render_flag_gif(flag_path, f"{question['country']}")
+    render_flag_image(question["iso2"], f"{question['country']}")
 
 with right_col:
     st.subheader(f"{question['country']}의 수도는 어디일까요?")

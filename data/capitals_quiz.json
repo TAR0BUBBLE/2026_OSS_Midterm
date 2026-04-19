@@ -1,114 +1,1106 @@
 [
-  {
-    "country": "대한민국",
-    "capital": "서울",
-    "continent": "아시아",
-    "iso2": "KR",
-    "aliases": ["seoul"]
-  },
-  {
-    "country": "일본",
-    "capital": "도쿄",
-    "continent": "아시아",
-    "iso2": "JP",
-    "aliases": ["tokyo", "tokio"]
-  },
-  {
-    "country": "태국",
-    "capital": "방콕",
-    "continent": "아시아",
-    "iso2": "TH",
-    "aliases": ["bangkok"]
-  },
-  {
-    "country": "베트남",
-    "capital": "하노이",
-    "continent": "아시아",
-    "iso2": "VN",
-    "aliases": ["hanoi"]
-  },
-  {
-    "country": "프랑스",
-    "capital": "파리",
-    "continent": "유럽",
-    "iso2": "FR",
-    "aliases": ["paris"]
-  },
-  {
-    "country": "독일",
-    "capital": "베를린",
-    "continent": "유럽",
-    "iso2": "DE",
-    "aliases": ["berlin"]
-  },
-  {
-    "country": "이탈리아",
-    "capital": "로마",
-    "continent": "유럽",
-    "iso2": "IT",
-    "aliases": ["rome", "roma"]
-  },
-  {
-    "country": "스페인",
-    "capital": "마드리드",
-    "continent": "유럽",
-    "iso2": "ES",
-    "aliases": ["madrid"]
-  },
-  {
-    "country": "이집트",
-    "capital": "카이로",
-    "continent": "아프리카",
-    "iso2": "EG",
-    "aliases": ["cairo"]
-  },
-  {
-    "country": "케냐",
-    "capital": "나이로비",
-    "continent": "아프리카",
-    "iso2": "KE",
-    "aliases": ["nairobi"]
-  },
-  {
-    "country": "나이지리아",
-    "capital": "아부자",
-    "continent": "아프리카",
-    "iso2": "NG",
-    "aliases": ["abuja"]
-  },
-  {
-    "country": "에티오피아",
-    "capital": "아디스아바바",
-    "continent": "아프리카",
-    "iso2": "ET",
-    "aliases": ["addisababa", "addis ababa"]
-  },
-  {
-    "country": "캐나다",
-    "capital": "오타와",
-    "continent": "아메리카",
-    "iso2": "CA",
-    "aliases": ["ottawa"]
-  },
-  {
-    "country": "멕시코",
-    "capital": "멕시코시티",
-    "continent": "아메리카",
-    "iso2": "MX",
-    "aliases": ["mexicocity", "mexico city"]
-  },
-  {
-    "country": "브라질",
-    "capital": "브라질리아",
-    "continent": "아메리카",
-    "iso2": "BR",
-    "aliases": ["brasilia"]
-  },
-  {
-    "country": "아르헨티나",
-    "capital": "부에노스아이레스",
-    "continent": "아메리카",
-    "iso2": "AR",
-    "aliases": ["buenosaires", "buenos aires"]
-  }
+    {
+        "country": "아프가니스탄",
+        "capital": "카불",
+        "continent": "아시아",
+        "iso2": "AF",
+        "aliases": [
+            "kabul"
+        ]
+    },
+    {
+        "country": "아르메니아",
+        "capital": "예레반",
+        "continent": "아시아",
+        "iso2": "AM",
+        "aliases": [
+            "yerevan"
+        ]
+    },
+    {
+        "country": "아제르바이잔",
+        "capital": "바쿠",
+        "continent": "아시아",
+        "iso2": "AZ",
+        "aliases": [
+            "baku"
+        ]
+    },
+    {
+        "country": "아랍에미리트",
+        "capital": "아부다비",
+        "continent": "아시아",
+        "iso2": "AE",
+        "aliases": [
+            "abudhabi",
+            "abu dhabi"
+        ]
+    },
+    {
+        "country": "방글라데시",
+        "capital": "다카",
+        "continent": "아시아",
+        "iso2": "BD",
+        "aliases": [
+            "dhaka"
+        ]
+    },
+    {
+        "country": "중국",
+        "capital": "베이징",
+        "continent": "아시아",
+        "iso2": "CN",
+        "aliases": [
+            "beijing"
+        ]
+    },
+    {
+        "country": "조지아",
+        "capital": "트빌리시",
+        "continent": "아시아",
+        "iso2": "GE",
+        "aliases": [
+            "tbilisi"
+        ]
+    },
+    {
+        "country": "인도",
+        "capital": "뉴델리",
+        "continent": "아시아",
+        "iso2": "IN",
+        "aliases": [
+            "newdelhi",
+            "new delhi"
+        ]
+    },
+    {
+        "country": "인도네시아",
+        "capital": "자카르타",
+        "continent": "아시아",
+        "iso2": "ID",
+        "aliases": [
+            "jakarta"
+        ]
+    },
+    {
+        "country": "이라크",
+        "capital": "바그다드",
+        "continent": "아시아",
+        "iso2": "IQ",
+        "aliases": [
+            "baghdad"
+        ]
+    },
+    {
+        "country": "이란",
+        "capital": "테헤란",
+        "continent": "아시아",
+        "iso2": "IR",
+        "aliases": [
+            "tehran"
+        ]
+    },
+    {
+        "country": "요르단",
+        "capital": "암만",
+        "continent": "아시아",
+        "iso2": "JO",
+        "aliases": [
+            "amman"
+        ]
+    },
+    {
+        "country": "일본",
+        "capital": "도쿄",
+        "continent": "아시아",
+        "iso2": "JP",
+        "aliases": [
+            "tokyo"
+        ]
+    },
+    {
+        "country": "캄보디아",
+        "capital": "프놈펜",
+        "continent": "아시아",
+        "iso2": "KH",
+        "aliases": [
+            "phnompenh",
+            "phnom penh"
+        ]
+    },
+    {
+        "country": "카자흐스탄",
+        "capital": "아스타나",
+        "continent": "아시아",
+        "iso2": "KZ",
+        "aliases": [
+            "astana"
+        ]
+    },
+    {
+        "country": "쿠웨이트",
+        "capital": "쿠웨이트시티",
+        "continent": "아시아",
+        "iso2": "KW",
+        "aliases": [
+            "kuwaitcity",
+            "kuwait city"
+        ]
+    },
+    {
+        "country": "라오스",
+        "capital": "비엔티안",
+        "continent": "아시아",
+        "iso2": "LA",
+        "aliases": [
+            "vientiane"
+        ]
+    },
+    {
+        "country": "말레이시아",
+        "capital": "쿠알라룸푸르",
+        "continent": "아시아",
+        "iso2": "MY",
+        "aliases": [
+            "kualalumpur",
+            "kuala lumpur"
+        ]
+    },
+    {
+        "country": "몽골",
+        "capital": "울란바토르",
+        "continent": "아시아",
+        "iso2": "MN",
+        "aliases": [
+            "ulaanbaatar",
+            "ulan bator"
+        ]
+    },
+    {
+        "country": "미얀마",
+        "capital": "네피도",
+        "continent": "아시아",
+        "iso2": "MM",
+        "aliases": [
+            "naypyidaw",
+            "nay pyi taw"
+        ]
+    },
+    {
+        "country": "네팔",
+        "capital": "카트만두",
+        "continent": "아시아",
+        "iso2": "NP",
+        "aliases": [
+            "kathmandu"
+        ]
+    },
+    {
+        "country": "오만",
+        "capital": "무스카트",
+        "continent": "아시아",
+        "iso2": "OM",
+        "aliases": [
+            "muscat"
+        ]
+    },
+    {
+        "country": "필리핀",
+        "capital": "마닐라",
+        "continent": "아시아",
+        "iso2": "PH",
+        "aliases": [
+            "manila"
+        ]
+    },
+    {
+        "country": "파키스탄",
+        "capital": "이슬라마바드",
+        "continent": "아시아",
+        "iso2": "PK",
+        "aliases": [
+            "islamabad"
+        ]
+    },
+    {
+        "country": "카타르",
+        "capital": "도하",
+        "continent": "아시아",
+        "iso2": "QA",
+        "aliases": [
+            "doha"
+        ]
+    },
+    {
+        "country": "사우디아라비아",
+        "capital": "리야드",
+        "continent": "아시아",
+        "iso2": "SA",
+        "aliases": [
+            "riyadh"
+        ]
+    },
+    {
+        "country": "싱가포르",
+        "capital": "싱가포르",
+        "continent": "아시아",
+        "iso2": "SG",
+        "aliases": [
+            "singapore"
+        ]
+    },
+    {
+        "country": "태국",
+        "capital": "방콕",
+        "continent": "아시아",
+        "iso2": "TH",
+        "aliases": [
+            "bangkok"
+        ]
+    },
+    {
+        "country": "우즈베키스탄",
+        "capital": "타슈켄트",
+        "continent": "아시아",
+        "iso2": "UZ",
+        "aliases": [
+            "tashkent"
+        ]
+    },
+    {
+        "country": "베트남",
+        "capital": "하노이",
+        "continent": "아시아",
+        "iso2": "VN",
+        "aliases": [
+            "hanoi"
+        ]
+    },
+    {
+        "country": "알바니아",
+        "capital": "티라나",
+        "continent": "유럽",
+        "iso2": "AL",
+        "aliases": [
+            "tirana"
+        ]
+    },
+    {
+        "country": "안도라",
+        "capital": "안도라라베야",
+        "continent": "유럽",
+        "iso2": "AD",
+        "aliases": [
+            "andorralavella",
+            "andorra la vella"
+        ]
+    },
+    {
+        "country": "오스트리아",
+        "capital": "빈",
+        "continent": "유럽",
+        "iso2": "AT",
+        "aliases": [
+            "vienna"
+        ]
+    },
+    {
+        "country": "벨기에",
+        "capital": "브뤼셀",
+        "continent": "유럽",
+        "iso2": "BE",
+        "aliases": [
+            "brussels"
+        ]
+    },
+    {
+        "country": "불가리아",
+        "capital": "소피아",
+        "continent": "유럽",
+        "iso2": "BG",
+        "aliases": [
+            "sofia"
+        ]
+    },
+    {
+        "country": "스위스",
+        "capital": "베른",
+        "continent": "유럽",
+        "iso2": "CH",
+        "aliases": [
+            "bern"
+        ]
+    },
+    {
+        "country": "체코",
+        "capital": "프라하",
+        "continent": "유럽",
+        "iso2": "CZ",
+        "aliases": [
+            "prague"
+        ]
+    },
+    {
+        "country": "독일",
+        "capital": "베를린",
+        "continent": "유럽",
+        "iso2": "DE",
+        "aliases": [
+            "berlin"
+        ]
+    },
+    {
+        "country": "덴마크",
+        "capital": "코펜하겐",
+        "continent": "유럽",
+        "iso2": "DK",
+        "aliases": [
+            "copenhagen"
+        ]
+    },
+    {
+        "country": "에스토니아",
+        "capital": "탈린",
+        "continent": "유럽",
+        "iso2": "EE",
+        "aliases": [
+            "tallinn"
+        ]
+    },
+    {
+        "country": "스페인",
+        "capital": "마드리드",
+        "continent": "유럽",
+        "iso2": "ES",
+        "aliases": [
+            "madrid"
+        ]
+    },
+    {
+        "country": "핀란드",
+        "capital": "헬싱키",
+        "continent": "유럽",
+        "iso2": "FI",
+        "aliases": [
+            "helsinki"
+        ]
+    },
+    {
+        "country": "프랑스",
+        "capital": "파리",
+        "continent": "유럽",
+        "iso2": "FR",
+        "aliases": [
+            "paris"
+        ]
+    },
+    {
+        "country": "영국",
+        "capital": "런던",
+        "continent": "유럽",
+        "iso2": "GB",
+        "aliases": [
+            "london"
+        ]
+    },
+    {
+        "country": "그리스",
+        "capital": "아테네",
+        "continent": "유럽",
+        "iso2": "GR",
+        "aliases": [
+            "athens"
+        ]
+    },
+    {
+        "country": "크로아티아",
+        "capital": "자그레브",
+        "continent": "유럽",
+        "iso2": "HR",
+        "aliases": [
+            "zagreb"
+        ]
+    },
+    {
+        "country": "헝가리",
+        "capital": "부다페스트",
+        "continent": "유럽",
+        "iso2": "HU",
+        "aliases": [
+            "budapest"
+        ]
+    },
+    {
+        "country": "아일랜드",
+        "capital": "더블린",
+        "continent": "유럽",
+        "iso2": "IE",
+        "aliases": [
+            "dublin"
+        ]
+    },
+    {
+        "country": "아이슬란드",
+        "capital": "레이캬비크",
+        "continent": "유럽",
+        "iso2": "IS",
+        "aliases": [
+            "reykjavik"
+        ]
+    },
+    {
+        "country": "이탈리아",
+        "capital": "로마",
+        "continent": "유럽",
+        "iso2": "IT",
+        "aliases": [
+            "rome",
+            "roma"
+        ]
+    },
+    {
+        "country": "리투아니아",
+        "capital": "빌뉴스",
+        "continent": "유럽",
+        "iso2": "LT",
+        "aliases": [
+            "vilnius"
+        ]
+    },
+    {
+        "country": "몰타",
+        "capital": "발레타",
+        "continent": "유럽",
+        "iso2": "MT",
+        "aliases": [
+            "valletta"
+        ]
+    },
+    {
+        "country": "네덜란드",
+        "capital": "암스테르담",
+        "continent": "유럽",
+        "iso2": "NL",
+        "aliases": [
+            "amsterdam"
+        ]
+    },
+    {
+        "country": "노르웨이",
+        "capital": "오슬로",
+        "continent": "유럽",
+        "iso2": "NO",
+        "aliases": [
+            "oslo"
+        ]
+    },
+    {
+        "country": "폴란드",
+        "capital": "바르샤바",
+        "continent": "유럽",
+        "iso2": "PL",
+        "aliases": [
+            "warsaw"
+        ]
+    },
+    {
+        "country": "포르투갈",
+        "capital": "리스본",
+        "continent": "유럽",
+        "iso2": "PT",
+        "aliases": [
+            "lisbon"
+        ]
+    },
+    {
+        "country": "루마니아",
+        "capital": "부쿠레슈티",
+        "continent": "유럽",
+        "iso2": "RO",
+        "aliases": [
+            "bucharest"
+        ]
+    },
+    {
+        "country": "스웨덴",
+        "capital": "스톡홀름",
+        "continent": "유럽",
+        "iso2": "SE",
+        "aliases": [
+            "stockholm"
+        ]
+    },
+    {
+        "country": "슬로베니아",
+        "capital": "류블랴나",
+        "continent": "유럽",
+        "iso2": "SI",
+        "aliases": [
+            "ljubljana"
+        ]
+    },
+    {
+        "country": "슬로바키아",
+        "capital": "브라티슬라바",
+        "continent": "유럽",
+        "iso2": "SK",
+        "aliases": [
+            "bratislava"
+        ]
+    },
+    {
+        "country": "알제리",
+        "capital": "알제",
+        "continent": "아프리카",
+        "iso2": "DZ",
+        "aliases": [
+            "algiers"
+        ]
+    },
+    {
+        "country": "앙골라",
+        "capital": "루안다",
+        "continent": "아프리카",
+        "iso2": "AO",
+        "aliases": [
+            "luanda"
+        ]
+    },
+    {
+        "country": "보츠와나",
+        "capital": "가보로네",
+        "continent": "아프리카",
+        "iso2": "BW",
+        "aliases": [
+            "gaborone"
+        ]
+    },
+    {
+        "country": "카메룬",
+        "capital": "야운데",
+        "continent": "아프리카",
+        "iso2": "CM",
+        "aliases": [
+            "yaounde"
+        ]
+    },
+    {
+        "country": "카보베르데",
+        "capital": "프라이아",
+        "continent": "아프리카",
+        "iso2": "CV",
+        "aliases": [
+            "praia"
+        ]
+    },
+    {
+        "country": "지부티",
+        "capital": "지부티",
+        "continent": "아프리카",
+        "iso2": "DJ",
+        "aliases": [
+            "djibouti"
+        ]
+    },
+    {
+        "country": "이집트",
+        "capital": "카이로",
+        "continent": "아프리카",
+        "iso2": "EG",
+        "aliases": [
+            "cairo"
+        ]
+    },
+    {
+        "country": "에리트레아",
+        "capital": "아스마라",
+        "continent": "아프리카",
+        "iso2": "ER",
+        "aliases": [
+            "asmara"
+        ]
+    },
+    {
+        "country": "에티오피아",
+        "capital": "아디스아바바",
+        "continent": "아프리카",
+        "iso2": "ET",
+        "aliases": [
+            "addisababa",
+            "addis ababa"
+        ]
+    },
+    {
+        "country": "가봉",
+        "capital": "리브르빌",
+        "continent": "아프리카",
+        "iso2": "GA",
+        "aliases": [
+            "libreville"
+        ]
+    },
+    {
+        "country": "가나",
+        "capital": "아크라",
+        "continent": "아프리카",
+        "iso2": "GH",
+        "aliases": [
+            "accra"
+        ]
+    },
+    {
+        "country": "감비아",
+        "capital": "반줄",
+        "continent": "아프리카",
+        "iso2": "GM",
+        "aliases": [
+            "banjul"
+        ]
+    },
+    {
+        "country": "기니",
+        "capital": "코나크리",
+        "continent": "아프리카",
+        "iso2": "GN",
+        "aliases": [
+            "conakry"
+        ]
+    },
+    {
+        "country": "적도기니",
+        "capital": "말라보",
+        "continent": "아프리카",
+        "iso2": "GQ",
+        "aliases": [
+            "malabo"
+        ]
+    },
+    {
+        "country": "케냐",
+        "capital": "나이로비",
+        "continent": "아프리카",
+        "iso2": "KE",
+        "aliases": [
+            "nairobi"
+        ]
+    },
+    {
+        "country": "라이베리아",
+        "capital": "몬로비아",
+        "continent": "아프리카",
+        "iso2": "LR",
+        "aliases": [
+            "monrovia"
+        ]
+    },
+    {
+        "country": "리비아",
+        "capital": "트리폴리",
+        "continent": "아프리카",
+        "iso2": "LY",
+        "aliases": [
+            "tripoli"
+        ]
+    },
+    {
+        "country": "모로코",
+        "capital": "라바트",
+        "continent": "아프리카",
+        "iso2": "MA",
+        "aliases": [
+            "rabat"
+        ]
+    },
+    {
+        "country": "마다가스카르",
+        "capital": "안타나나리보",
+        "continent": "아프리카",
+        "iso2": "MG",
+        "aliases": [
+            "antananarivo"
+        ]
+    },
+    {
+        "country": "말리",
+        "capital": "바마코",
+        "continent": "아프리카",
+        "iso2": "ML",
+        "aliases": [
+            "bamako"
+        ]
+    },
+    {
+        "country": "모잠비크",
+        "capital": "마푸토",
+        "continent": "아프리카",
+        "iso2": "MZ",
+        "aliases": [
+            "maputo"
+        ]
+    },
+    {
+        "country": "나미비아",
+        "capital": "빈트후크",
+        "continent": "아프리카",
+        "iso2": "NA",
+        "aliases": [
+            "windhoek"
+        ]
+    },
+    {
+        "country": "니제르",
+        "capital": "니아메",
+        "continent": "아프리카",
+        "iso2": "NE",
+        "aliases": [
+            "niamey"
+        ]
+    },
+    {
+        "country": "나이지리아",
+        "capital": "아부자",
+        "continent": "아프리카",
+        "iso2": "NG",
+        "aliases": [
+            "abuja"
+        ]
+    },
+    {
+        "country": "르완다",
+        "capital": "키갈리",
+        "continent": "아프리카",
+        "iso2": "RW",
+        "aliases": [
+            "kigali"
+        ]
+    },
+    {
+        "country": "세네갈",
+        "capital": "다카르",
+        "continent": "아프리카",
+        "iso2": "SN",
+        "aliases": [
+            "dakar"
+        ]
+    },
+    {
+        "country": "차드",
+        "capital": "은자메나",
+        "continent": "아프리카",
+        "iso2": "TD",
+        "aliases": [
+            "ndjamena",
+            "n'djamena"
+        ]
+    },
+    {
+        "country": "튀니지",
+        "capital": "튀니스",
+        "continent": "아프리카",
+        "iso2": "TN",
+        "aliases": [
+            "tunis"
+        ]
+    },
+    {
+        "country": "탄자니아",
+        "capital": "도도마",
+        "continent": "아프리카",
+        "iso2": "TZ",
+        "aliases": [
+            "dodoma"
+        ]
+    },
+    {
+        "country": "우간다",
+        "capital": "캄팔라",
+        "continent": "아프리카",
+        "iso2": "UG",
+        "aliases": [
+            "kampala"
+        ]
+    },
+    {
+        "country": "앤티가바부다",
+        "capital": "세인트존스",
+        "continent": "아메리카",
+        "iso2": "AG",
+        "aliases": [
+            "saintjohns",
+            "stjohns",
+            "st. john's"
+        ]
+    },
+    {
+        "country": "아르헨티나",
+        "capital": "부에노스아이레스",
+        "continent": "아메리카",
+        "iso2": "AR",
+        "aliases": [
+            "buenosaires",
+            "buenos aires"
+        ]
+    },
+    {
+        "country": "바베이도스",
+        "capital": "브리지타운",
+        "continent": "아메리카",
+        "iso2": "BB",
+        "aliases": [
+            "bridgetown"
+        ]
+    },
+    {
+        "country": "바하마",
+        "capital": "나소",
+        "continent": "아메리카",
+        "iso2": "BS",
+        "aliases": [
+            "nassau"
+        ]
+    },
+    {
+        "country": "벨리즈",
+        "capital": "벨모판",
+        "continent": "아메리카",
+        "iso2": "BZ",
+        "aliases": [
+            "belmopan"
+        ]
+    },
+    {
+        "country": "브라질",
+        "capital": "브라질리아",
+        "continent": "아메리카",
+        "iso2": "BR",
+        "aliases": [
+            "brasilia"
+        ]
+    },
+    {
+        "country": "캐나다",
+        "capital": "오타와",
+        "continent": "아메리카",
+        "iso2": "CA",
+        "aliases": [
+            "ottawa"
+        ]
+    },
+    {
+        "country": "칠레",
+        "capital": "산티아고",
+        "continent": "아메리카",
+        "iso2": "CL",
+        "aliases": [
+            "santiago"
+        ]
+    },
+    {
+        "country": "콜롬비아",
+        "capital": "보고타",
+        "continent": "아메리카",
+        "iso2": "CO",
+        "aliases": [
+            "bogota"
+        ]
+    },
+    {
+        "country": "코스타리카",
+        "capital": "산호세",
+        "continent": "아메리카",
+        "iso2": "CR",
+        "aliases": [
+            "sanjose",
+            "san jose"
+        ]
+    },
+    {
+        "country": "쿠바",
+        "capital": "아바나",
+        "continent": "아메리카",
+        "iso2": "CU",
+        "aliases": [
+            "havana"
+        ]
+    },
+    {
+        "country": "도미니카공화국",
+        "capital": "산토도밍고",
+        "continent": "아메리카",
+        "iso2": "DO",
+        "aliases": [
+            "santodomingo",
+            "santo domingo"
+        ]
+    },
+    {
+        "country": "에콰도르",
+        "capital": "키토",
+        "continent": "아메리카",
+        "iso2": "EC",
+        "aliases": [
+            "quito"
+        ]
+    },
+    {
+        "country": "과테말라",
+        "capital": "과테말라시티",
+        "continent": "아메리카",
+        "iso2": "GT",
+        "aliases": [
+            "guatemalacity",
+            "guatemala city"
+        ]
+    },
+    {
+        "country": "가이아나",
+        "capital": "조지타운",
+        "continent": "아메리카",
+        "iso2": "GY",
+        "aliases": [
+            "georgetown"
+        ]
+    },
+    {
+        "country": "온두라스",
+        "capital": "테구시갈파",
+        "continent": "아메리카",
+        "iso2": "HN",
+        "aliases": [
+            "tegucigalpa"
+        ]
+    },
+    {
+        "country": "아이티",
+        "capital": "포르토프랭스",
+        "continent": "아메리카",
+        "iso2": "HT",
+        "aliases": [
+            "portauprince",
+            "port-au-prince"
+        ]
+    },
+    {
+        "country": "자메이카",
+        "capital": "킹스턴",
+        "continent": "아메리카",
+        "iso2": "JM",
+        "aliases": [
+            "kingston"
+        ]
+    },
+    {
+        "country": "세인트루시아",
+        "capital": "캐스트리스",
+        "continent": "아메리카",
+        "iso2": "LC",
+        "aliases": [
+            "castries"
+        ]
+    },
+    {
+        "country": "멕시코",
+        "capital": "멕시코시티",
+        "continent": "아메리카",
+        "iso2": "MX",
+        "aliases": [
+            "mexicocity",
+            "mexico city"
+        ]
+    },
+    {
+        "country": "니카라과",
+        "capital": "마나과",
+        "continent": "아메리카",
+        "iso2": "NI",
+        "aliases": [
+            "managua"
+        ]
+    },
+    {
+        "country": "파나마",
+        "capital": "파나마시티",
+        "continent": "아메리카",
+        "iso2": "PA",
+        "aliases": [
+            "panamacity",
+            "panama city"
+        ]
+    },
+    {
+        "country": "페루",
+        "capital": "리마",
+        "continent": "아메리카",
+        "iso2": "PE",
+        "aliases": [
+            "lima"
+        ]
+    },
+    {
+        "country": "파라과이",
+        "capital": "아순시온",
+        "continent": "아메리카",
+        "iso2": "PY",
+        "aliases": [
+            "asuncion"
+        ]
+    },
+    {
+        "country": "수리남",
+        "capital": "파라마리보",
+        "continent": "아메리카",
+        "iso2": "SR",
+        "aliases": [
+            "paramaribo"
+        ]
+    },
+    {
+        "country": "엘살바도르",
+        "capital": "산살바도르",
+        "continent": "아메리카",
+        "iso2": "SV",
+        "aliases": [
+            "sansalvador",
+            "san salvador"
+        ]
+    },
+    {
+        "country": "트리니다드토바고",
+        "capital": "포트오브스페인",
+        "continent": "아메리카",
+        "iso2": "TT",
+        "aliases": [
+            "portofspain",
+            "port of spain"
+        ]
+    },
+    {
+        "country": "미국",
+        "capital": "워싱턴 D.C.",
+        "continent": "아메리카",
+        "iso2": "US",
+        "aliases": [
+            "washingtondc",
+            "washington dc",
+            "washington d.c."
+        ]
+    },
+    {
+        "country": "우루과이",
+        "capital": "몬테비데오",
+        "continent": "아메리카",
+        "iso2": "UY",
+        "aliases": [
+            "montevideo"
+        ]
+    },
+    {
+        "country": "베네수엘라",
+        "capital": "카라카스",
+        "continent": "아메리카",
+        "iso2": "VE",
+        "aliases": [
+            "caracas"
+        ]
+    }
 ]
