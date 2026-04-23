@@ -302,11 +302,12 @@ st.markdown(
 # -----------------------------
 # 유틸 함수
 # -----------------------------
-@st.cache_data(show_spinner="퀴즈 데이터를 불러오는 중입니다...")
+@st.cache_data(show_spinner="사용자 정보를 불러오는 중입니다...")
 def load_users():
     with open(USERS_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
-    
+
+@st.cache_data(show_spinner="퀴즈 데이터를 불러오는 중입니다...")
 def load_quiz_data():
     with open(DATA_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
