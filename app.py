@@ -20,16 +20,12 @@ BASE_DIR = Path(__file__).parent
 DATA_PATH = BASE_DIR / "data" / "capitals_quiz.json"
 FLAG_DIR = BASE_DIR / "assets" / "flags"
 HEADER_IMAGE_PATH = BASE_DIR / "assets" / "header-map.jpg"
+USERS_PATH = BASE_DIR / "data" / "users.json"
 
 APP_TITLE = "세계 수도 챌린지"
 STUDENT_ID = "2023204017"
 STUDENT_NAME = "최유진"
 
-VALID_USERS = {
-    "student": "oss2026",
-    "yujin": "capitalmaster",
-    "admin": "1234"
-}
 
 # -----------------------------
 # 파일 확장자 탐색 함수
@@ -307,6 +303,10 @@ st.markdown(
 # 유틸 함수
 # -----------------------------
 @st.cache_data(show_spinner="퀴즈 데이터를 불러오는 중입니다...")
+def load_users():
+    with open(USERS_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+    
 def load_quiz_data():
     with open(DATA_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -403,7 +403,7 @@ def go_next():
 # -----------------------------
 init_session_state()
 quiz_data = load_quiz_data()
-
+valid_users = load_users()
 
 # -----------------------------
 # 사이드바
@@ -495,7 +495,7 @@ if not st.session_state.logged_in:
         login_submitted = st.form_submit_button("로그인")
 
         if login_submitted:
-            if VALID_USERS.get(user_id) == password:
+            if valid_users.get(user_id) == password:
                 st.session_state.logged_in = True
                 st.session_state.username = user_id
                 st.success("로그인에 성공했습니다!")
