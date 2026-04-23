@@ -376,7 +376,7 @@ def logout():
 
 
 def start_quiz(all_questions):
-    QUIZ_COUNT = 5
+    QUIZ_COUNT = 10
     selected = [
         q for q in all_questions if q["continent"] == st.session_state.selected_continent
     ]
@@ -411,7 +411,7 @@ quiz_data = load_quiz_data()
 st.sidebar.markdown(
     """
     <div class="sidebar-top-row">
-        <div class="sidebar-menu-title">🌍 Menu</div>
+        <div class="sidebar-menu-title">🌍 Welcome!</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -487,7 +487,7 @@ st.divider()
 # 로그인 화면
 # -----------------------------
 if not st.session_state.logged_in:
-    st.subheader("로그인")
+    st.subheader("Login")
 
     with st.form("login_form"):
         user_id = st.text_input("아이디")
