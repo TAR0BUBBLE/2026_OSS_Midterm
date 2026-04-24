@@ -633,6 +633,8 @@ with right_col:
                     )
                     st.rerun()
 
+
+
     else:
         if st.session_state.feedback["correct"]:
             st.markdown(
@@ -656,6 +658,7 @@ with right_col:
             st.error("괜찮아요. 다음 문제를 맞혀봐요!")
 
         next_label = "결과 보기" if current_no == total_questions else "다음 문제"
-        if st.button(next_label, type="primary"):
+        if st.button(next_label, type="primary", shortcut="Enter"):
             go_next()
             st.rerun()
+ 
